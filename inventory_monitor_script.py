@@ -81,17 +81,17 @@ if __name__ == "__main__":
     email_body = """
         <html>
             <body>
-                <p><h4 style="font-family:Roboto;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!
+                <p><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span>
                 <br>
                 {0}
                 <br>
                 <br>
-                The following wines are within their suggested age range based on their style.
+                <span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span>
                 {1}
-                </h4></p>    
+                </p>    
             </body>
         </html>""".format(
-        drink_soon.to_html(), in_range.to_html()
+        drink_soon.to_html(index=False), in_range.to_html(index=False)
     )
 
     send_mail(user=user, pw=pw, email_list=["matthew.bagin@gmail.com"], msg=email_body)
