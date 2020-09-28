@@ -9,8 +9,8 @@ def encrypt(my_string):
     with open("encrypted.txt", "w+") as f:
         f.writelines([key.decode("utf-8"), "\n", cipher_text.decode("utf-8")])
 
-    print("Key is:\t{}".format(key.decode("utf-8")))
-    print("Encrypted text:\t{}".format(cipher_text.decode("utf-8")))
+    # print("Key is:\t{}".format(key.decode("utf-8")))
+    # print("Encrypted text:\t{}".format(cipher_text.decode("utf-8")))
 
 
 def decrypt(key, cipher_text):

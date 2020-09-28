@@ -94,4 +94,10 @@ if __name__ == "__main__":
         drink_soon.to_html(index=False), in_range.to_html(index=False)
     )
 
-    send_mail(user=user, pw=pw, email_list=["matthew.bagin@gmail.com"], msg=email_body)
+    email_list = []
+
+    with open("emails.txt", "r") as email_file:
+        for line in email_file:
+            email_list.append(line.strip())
+
+    send_mail(user=user, pw=pw, email_list=email_list, msg=email_body)

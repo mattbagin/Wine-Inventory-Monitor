@@ -1,4 +1,5 @@
 .vscode
 venv
 encrypted.txt
+emails.txt
 __pycache__
