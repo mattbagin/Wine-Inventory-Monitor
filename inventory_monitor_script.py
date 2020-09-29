@@ -78,20 +78,26 @@ if __name__ == "__main__":
 
     drink_soon, in_range = get_inventory_sheet()
 
-    email_body = """
+    email_body = []
+
+    email_body.append("""<span style="font-family:Arial;font-size:10pt;color:Red"><strong>Alert! </strong>The following wines are past their optimal aging time. Please consider drinking very soon!</span>""")
+
+    email_body.append("""<span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span>""")
+
+    if drink_soon.empty:
+        email_body_append = email_body[1] + "<br>" + in_range.to_html(index=False)
+    else:
+        email_body_append = email_body_append = email_body[0] + "<br>" + drink_soon.to_html(index=False) + "<br><br>" + email_body[1] + "<br>" + in_range.to_html(index=False)
+
+    email_body_full = """
         <html>
             <body>
-                <p><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span>
-                <br>
+                <p>
                 {0}
-                <br>
-                <br>
-                <span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span>
-                {1}
                 </p>    
             </body>
         </html>""".format(
-        drink_soon.to_html(index=False), in_range.to_html(index=False)
+        email_body_append
     )
 
     email_list = []
@@ -100,4 +106,4 @@ if __name__ == "__main__":
         for line in email_file:
             email_list.append(line.strip())
 
-    send_mail(user=user, pw=pw, email_list=email_list, msg=email_body)
+    send_mail(user=user, pw=pw, email_list=email_list, msg=email_body_full)
