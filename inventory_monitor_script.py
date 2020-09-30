@@ -80,21 +80,19 @@ if __name__ == "__main__":
 
     email_body = []
 
-    email_body.append("""<span style="font-family:Arial;color:Red"><strong>Alert! </strong></span><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span>""")
+    email_body.append("""<h2 style="font-family:Arial;color:Red"><strong>Alert!</strong></h2><p><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span></p>""")
 
-    email_body.append("""<span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span>""")
+    email_body.append("""<p><span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span></p>""")
 
     if drink_soon.empty:
         email_body_append = email_body[1] + "<br>" + in_range.to_html(index=False)
     else:
-        email_body_append = email_body_append = email_body[0] + "<br>" + drink_soon.to_html(index=False) + "<br><br>" + email_body[1] + "<br>" + in_range.to_html(index=False)
+        email_body_append = email_body_append = email_body[0] + "<br>" + drink_soon.to_html(index=False) + "<br>" + email_body[1] + "<br>" + in_range.to_html(index=False)
 
     email_body_full = """
         <html>
             <body>
-                <p>
-                {0}
-                </p>    
+                {0}   
             </body>
         </html>""".format(
         email_body_append
