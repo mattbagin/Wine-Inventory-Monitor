@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     email_body = []
 
-    email_body.append("""<span style="font-family:Arial;font-size:10pt;color:Red"><strong>Alert! </strong>The following wines are past their optimal aging time. Please consider drinking very soon!</span>""")
+    email_body.append("""<span style="font-family:Arial;color:Red"><strong>Alert! </strong></span><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span>""")
 
     email_body.append("""<span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span>""")
 
