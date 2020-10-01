@@ -1,7 +1,7 @@
 import gspread
 import pandas as pd
 import smtplib
-import HashPassword as Hash
+import hash_password as Hash
 from datetime import date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     email_body = []
 
-    email_body.append("""<h2 style="font-family:Arial;color:Red"><strong>Alert!</strong></h2><p><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span></p>""")
+    email_body.append("""<h2 style="font-family:Arial;color:Red"><b>Alert!</b></h2><p><span style="font-family:Arial;font-size:10pt">The following wines are past their optimal aging time. Please consider drinking very soon!</span></p>""")
 
     email_body.append("""<p><span style="font-family:Arial;font-size:10pt">The following wines are within their suggested age range based on their style.</span></p>""")
 
